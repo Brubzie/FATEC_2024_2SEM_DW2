@@ -4,20 +4,20 @@ require_once('../dados_banco.php');
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
+
+    // Define o modo de erro PDO como exceção
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // sql to delete a record
+    // SQL para apagar um registro
     $sql = "DELETE FROM authors WHERE authorid=3";
 
-    // use exec() because no results are returned
+    // Usa exec() porquê nenhum resultado é retornado
     $conn->exec($sql);
-    echo "Record deleted successfully";
-    }
-catch(PDOException $e)
-    {
+    echo "Registro deletado com sucesso";
+} catch(PDOException $e)
+{
     echo $sql . "<br>" . $e->getMessage();
-    }
+}
 
 $conn = null;
 ?>

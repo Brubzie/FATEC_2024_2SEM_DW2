@@ -7,7 +7,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Verifica a conexão
 if ($conn->connect_error)
 {
-    die("Connection failed: " . $conn->connect_error);
+    die("Falha na conexão: " . $conn->connect_error);
 }
 
 // SQL para deletar
@@ -15,10 +15,10 @@ $sql = "DELETE FROM authors WHERE authorid=3";
 
 if ($conn->query($sql) === TRUE)
 {
-    echo "Record deleted successfully";
+    echo "Registro deletado com sucesso";
 } else
 {
-    echo "Error deleting record: " . $conn->error;
+    echo "Erro deletando registro: " . $conn->error;
 }
 
 $conn->close();
